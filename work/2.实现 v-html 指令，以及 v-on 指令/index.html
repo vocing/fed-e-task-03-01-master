@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--<link rel="icon" href="<%= BASE_URL %>favicon.ico" />-->
+</head>
+
+<body>
+    <div id="app">
+        <a>{{ msg }}</a>
+        <a>{{ count }}</a>
+        <input type="input" v-model="msg" v-on:input="input($event, person)" />
+        <div v-html="html" v-on:click="click1111111"></div>
+    </div>
+    <!-- <script src="https://lib.baomitu.com/vue/2.6.11/vue.min.js"></script> -->
+    <!-- 发布订阅模式 -->
+    <!-- <script src="./js/designPatterns/observe.js"></script> -->
+    <!-- 观察者模式 -->
+    <!-- <script src="./js/designPatterns/watcher.js"></script> -->
+    <!-- 响应式原理模拟 -->
+    <script src="./js/vue/dep.js"></script>
+    <script src="./js/vue/watcher.js"></script>
+    <script src="./js/vue/observer.js"></script>
+    <script src="./js/vue/compiler.js"></script>
+    <script src="./js/vue/vueSimulation.js"></script>
+    <script>
+        // 测试
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello',
+                count: 100,
+                input: 32132,
+                html: '<a>v-html</a>',
+                person: {
+                    name: '张三',
+                },
+            },
+            methods: {
+                click1111111(val) {
+                    console.log(val)
+                },
+                input(val, data) {
+                    console.log(val, data)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
