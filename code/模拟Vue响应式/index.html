@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--<link rel="icon" href="<%= BASE_URL %>favicon.ico" />-->
+    <script>
+      ;(function (window, document) {
+        function resize() {
+          var ww = window.innerWidth
+          if (ww > window.screen.width) {
+            window.requestAnimationFrame(resize)
+          } else {
+            if (ww > 750) {
+              ww = 750
+            }
+            document.documentElement.style.fontSize = (ww * 32) / 750 + 'px'
+          }
+        }
+        resize()
+        window.addEventListener('resize', resize)
+        window.addEventListener('pageshow', function (e) {
+          if (e.presisted) {
+            resize()
+          }
+        })
+      })(window, document)
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <a>{{ msg }}</a>
+      <a>{{ count }}</a>
+      <input type="input" v-model="msg" />
+    </div>
+    <!-- <script src="https://lib.baomitu.com/vue/2.6.11/vue.min.js"></script> -->
+    <!-- 发布订阅模式 -->
+    <!-- <script src="./js/designPatterns/observe.js"></script> -->
+    <!-- 观察者模式 -->
+    <!-- <script src="./js/designPatterns/watcher.js"></script> -->
+    <!-- 响应式原理模拟 -->
+    <script src="./js/vue/dep.js"></script>
+    <script src="./js/vue/watcher.js"></script>
+    <script src="./js/vue/observer.js"></script>
+    <script src="./js/vue/compiler.js"></script>
+    <script src="./js/vue/vueSimulation.js"></script>
+    <script>
+      // 测试
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello',
+          count: 100,
+          input: 32132,
+          person: {
+            name: '张三',
+          },
+        },
+      })
+      //   console.log(vm)
+    </script>
+  </body>
+</html>
